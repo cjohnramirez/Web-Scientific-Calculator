@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Calculator App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Calculator.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,900;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="calculator">
+            <div class="display-screen">
+                <div class="calculator-modes">
+                    <button id="normal-mode" onclick="disableScientificOperators()">
+                        <p>Normal</p>
+                    </button>
+                    <button id="scientific-mode" onclick="enableScientificOperators()">
+                        <p>Scientific</p>
+                    </button>
+                </div>
+                <div class="display-input">
+                    <div id="small-number-display"></div>
+                    <div id="big-number-display"></div>
+                </div>
+            </div>
+            <div class="display-calculator">
+                <div class="calculator-buttons">
+                    <div class="calculator-scientific-buttons">
+                        <button id="abs-button">
+                            <p>Abs</p>
+                        </button>
+                        <button id="cube-root-button">
+                            <p>x³</p>
+                        </button>
+                        <button id="square-root-button">
+                            <p>x²</p>
+                        </button>
+                        <button id="nth-root-button">
+                            <p>xⁿ</p>
+                        </button>
+                        <button id="left-parenthesis-button">
+                            <p>(</p>
+                        </button>
+                        <button id="right-parenthesis-button">
+                            <p>)</p>
+                        </button>
+                        <button id="normal-log-button">
+                            <p>log</p>
+                        </button>
+                        <button id="natural-log-button">
+                            <p>ln</p>
+                        </button>
+                        <button id="sine-button">
+                            <p>sin</p>
+                        </button>
+                        <button id="cosine-button">
+                            <p>cos</p>
+                        </button>
+                        <button id="tangent-button">
+                            <p>tan</p>
+                        </button>
+                        <button id="modulo-button">
+                            <p>%</p>
+                        </button>
+                    </div>
+                    <div class="calculator-normal-buttons">
+                        <button id="7-button" onclick="addSymbolToExpression('7')">
+                            <p>7</p>
+                        </button>
+                        <button id="8-button" onclick="addSymbolToExpression('8')">
+                            <p>8</p>
+                        </button>
+                        <button id="9-button"
+                        onclick="addSymbolToExpression('9')">
+                            <p>9</p>
+                        </button>
+                        <button id="delete-button" onclick="deleteCharacters()">
+                            <p>DEL</p>
+                        </button>
+                        <button id="all-clear-button" onclick="allClear()">
+                            <p>AC</p>
+                        </button>
+                        <button id="4-button" onclick="addSymbolToExpression('4')">
+                            <p>4</p>
+                        </button>
+                        <button id="5-button"
+                        onclick="addSymbolToExpression('5')">
+                            <p>5</p>
+                        </button>
+                        <button id="6-button"
+                        onclick="addSymbolToExpression('6')">
+                            <p>6</p>
+                        </button>
+                        <button id="multiply-button" class="operator" onclick="addSymbolToExpression('*')">
+                            <p>x</p>
+                        </button>
+                        <button id="divide-button" class="operator" onclick="addSymbolToExpression('/')">
+                            <p>/</p>
+                        </button>
+                        <button id="1-button" onclick="addSymbolToExpression('1')">
+                            <p>1</p>
+                        </button>
+                        <button id="2-button" onclick="addSymbolToExpression('2')">
+                            <p>2</p>
+                        </button>
+                        <button id="3-button" onclick="addSymbolToExpression('3')">
+                            <p>3</p>
+                        </button>
+                        <button id="plus-button" class="operator" onclick="addSymbolToExpression('+')">
+                            <p>+</p>
+                        </button>
+                        <button id="minus-button" class="operator" onclick="addSymbolToExpression('-')">
+                            <p>-</p>
+                        </button>
+                        <button id="zero-button" onclick="addSymbolToExpression('0')">
+                            <p>0</p>
+                        </button>
+                        <button id="dot-button" class="operator"
+                        onclick="addSymbolToExpression('.')">
+                            <p>.</p>
+                        </button>
+                        <button id="blank-button"></button>
+                        <button id="answer-button">
+                            <p>Ans</p>
+                        </button>
+                        <button id="equals-button" onclick="equalsButton()">
+                            <p>=</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./Calculator.js"></script>
+    </body>
+</html>

@@ -1,0 +1,125 @@
+* {
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+}
+
+body {
+    display: flex;
+    margin: auto;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.calculator {
+    width: 350px;
+    margin: auto;
+}
+
+.display-screen {
+    display: flex;
+    flex-direction: column;
+    background-color: #d05c65;
+    width: 100%;
+    height: 12rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.display-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 80%;
+    width: 100%;
+    overflow: auto;
+}
+
+.display-input div {
+    width: 100%;
+}
+
+.display-input div p {
+    white-space: nowrap;
+    display: flex;
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.big-number-output {
+    padding-left: -1rem;
+    font-size: 40px;
+    color: white;
+}
+
+.small-number-output {
+    padding: 0 0.5rem; 
+    font-size: 20px;
+    color: white;
+}
+
+.calculator-modes {
+    display: flex;
+}
+
+.calculator-modes p {
+    margin: 0;
+}
+
+.calculator-modes button {
+    color: white;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: none;
+    cursor: pointer;
+    background-color: #d05c65;
+}
+
+.calculator-normal-buttons > button:disabled {
+    color: black;
+}
+
+button p {
+    font-size: 16px;
+}
+
+.calculator-buttons {
+    user-select: none;
+}
+
+.calculator-scientific-buttons button, .calculator-normal-buttons button:not(#blank-button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #efefef;
+    margin: 0.35rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.calculator-scientific-buttons button:hover, .calculator-normal-buttons button:hover:not(#blank-button) {
+    background-color: #c7c7c7;
+}
+
+.calculator-modes button:active, .calculator-scientific-buttons button:active, .calculator-normal-buttons button:active:not(#blank-button) {
+    transform: translateY(2px);
+}
+
+#blank-button {
+    background-color: white;
+    border: none;
+}
+
+.calculator-scientific-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 3.5rem);
+}
+
+.calculator-normal-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 4.5rem);
+}
+
