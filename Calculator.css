@@ -76,6 +76,10 @@ body {
 
 .calculator-normal-buttons > button:disabled {
     color: black;
+} 
+
+button:enabled {
+    color: black;
 }
 
 button p {
@@ -122,4 +126,6 @@ button p {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 4.5rem);
 }
+
+
 
