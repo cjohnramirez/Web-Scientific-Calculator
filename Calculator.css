@@ -66,7 +66,7 @@ body {
 }
 
 .calculator-modes button {
-    color: white;
+    color: black;
     padding: 0.5rem;
     margin: 0.5rem;
     border: none;
@@ -77,10 +77,6 @@ body {
 .calculator-normal-buttons > button:disabled {
     color: black;
 } 
-
-button:enabled {
-    color: black;
-}
 
 button p {
     font-size: 16px;
@@ -93,7 +89,7 @@ button p {
 .calculator-scientific-buttons button, .calculator-normal-buttons button:not(#blank-button) {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
     background-color: #efefef;
     margin: 0.35rem;
     border: none;

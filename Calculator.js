@@ -9,7 +9,7 @@ let expression = "";
 let answer = "";
 let historyExpression = [];
 let answerExpression = [];
-let operators = ['+', 'x', '/', '*', '-'];
+let operators = ['+', 'x', '/', '*', '-', '(', ')'];
 let oneDot = false;
 let isModeClicked = false;
 
@@ -135,5 +135,3 @@ function enableScientificOperators() {
         button.disabled = false;
     });
 }
-
-//Next: Other Math Operators
