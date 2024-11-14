@@ -9,9 +9,11 @@ let expression = "";
 let answer = "";
 let historyExpression = [];
 let answerExpression = [];
-let operators = ['+', 'x', '/', '*', '-', '(', ')'];
+let operators = ['+', 'x', '/', '*', '-'];
 let oneDot = false;
 let isModeClicked = false;
+
+let lastParenthesis = [];
 
 defaultState();
 
@@ -59,6 +61,7 @@ const evaluateExpression = (expression) => {
 const addSymbolToExpression = (symbol) => {
     equalButton.disabled = expression.length - 1 === 0; 
     expression += symbol;
+    console.log(expression);
     
     //disables multiple adjacent operators, alongside dot
     if (lastCharInclusion(expression)){
@@ -76,6 +79,7 @@ const addSymbolToExpression = (symbol) => {
     } 
 
     bigNumberDisplay.innerHTML = `<p class="big-number-output">${expression}</p>`;
+    bigNumberDisplay.innerHTML += `<p class="big-number-suggestion">${lastParenthesis.join("")}</p>`;
 }
 
 const equalsButton = () => {
@@ -134,4 +138,20 @@ function enableScientificOperators() {
     document.querySelectorAll(".calculator-scientific-buttons button").forEach((button) => {
         button.disabled = false;
     });
+}
+
+//scientific operators
+function addParenthesis(character) {
+    if (character === '('){
+        lastParenthesis.push(')');
+        addSymbolToExpression('(');
+    }
+
+    console.log(lastParenthesis.length)
+    if (character === ')') {
+        lastParenthesis.pop();
+        if (lastParenthesis.length !== 0){
+            addSymbolToExpression(')');
+        }
+    }
 }

@@ -45,10 +45,20 @@ body {
     padding-left: 1rem;
 }
 
+#big-number-display {
+    display: flex;
+}
+
 .big-number-output {
     padding-left: -1rem;
     font-size: 40px;
     color: white;
+}
+
+.big-number-suggestion {
+    padding-left: -1rem;
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.500);
 }
 
 .small-number-output {
@@ -66,7 +76,7 @@ body {
 }
 
 .calculator-modes button {
-    color: black;
+    color: white;
     padding: 0.5rem;
     margin: 0.5rem;
     border: none;
