@@ -5,6 +5,15 @@ const deleteButton = document.getElementById("delete-button");
 const minusButton = document.getElementById("minus-button");
 const dotButton = document.getElementById("dot-button");
 
+//if expression is undefined and AC is clicked, then enable operators and numbers
+document.getElementById("all-clear-button").addEventListener("click", function() {
+    if (disabledOperatorsForUndefined) {
+        enableOperators();
+        enableNumbers();
+    }
+})
+
+//include flags for constraints
 let expression = "";
 let answer = "";
 let historyExpression = [];
@@ -12,7 +21,8 @@ let answerExpression = [];
 let operators = ['+', 'x', '/', '*', '-'];
 let oneDot = false;
 let isModeClicked = false;
-
+let disabledOperatorsForUndefined = false;
+let isParenthesisClosed = false;
 let lastParenthesis = [];
 
 defaultState();
@@ -40,6 +50,30 @@ function enableOperators() {
     });
 }
 
+function disableNumbers() {
+    document.querySelectorAll(".number").forEach(button => {
+        button.disabled = true;
+    });
+}
+
+function enableNumbers() {
+    document.querySelectorAll(".number").forEach(button => {
+        button.disabled = false;
+    });
+}
+
+function disableScientificOperators() {
+    document.querySelectorAll(".calculator-scientific-buttons button").forEach((button) => {
+        button.disabled = true;
+    });
+}
+
+function enableScientificOperators() {
+    document.querySelectorAll(".calculator-scientific-buttons button").forEach((button) => {
+        button.disabled = false;
+    });
+}
+
 const lastChar = expression => expression.charAt(expression.length - 1);
 
 const lastCharInclusion = expression => operators.includes(lastChar(expression));
@@ -62,8 +96,15 @@ const addSymbolToExpression = (symbol) => {
     equalButton.disabled = expression.length - 1 === 0; 
     expression += symbol;
     console.log(expression);
-    
-    //disables multiple adjacent operators, alongside dot
+
+    disableMultipleOperators();
+
+    bigNumberDisplay.innerHTML = `<p class="big-number-output">${expression}</p>`;
+    bigNumberDisplay.innerHTML += `<p class="big-number-suggestion">${lastParenthesis.join("")}</p>`;
+}
+
+//disables multiple adjacent operators, alongside dot
+const disableMultipleOperators = () => {
     if (lastCharInclusion(expression)){
         disableOperators();
         dotButton.disabled = false;
@@ -77,9 +118,6 @@ const addSymbolToExpression = (symbol) => {
             dotButton.disabled = oneDot;
         }
     } 
-
-    bigNumberDisplay.innerHTML = `<p class="big-number-output">${expression}</p>`;
-    bigNumberDisplay.innerHTML += `<p class="big-number-suggestion">${lastParenthesis.join("")}</p>`;
 }
 
 const equalsButton = () => {
@@ -89,10 +127,13 @@ const equalsButton = () => {
 
     //evaluates divide by zero
     if (evaluateExpression(expression) === Infinity){
+        disableOperators();
+        disableNumbers();
         expression = "undefined";
         equalButton.disabled = true; 
         deleteButton.disabled = true;
         smallNumberDisplay.innerHTML = "";
+        disabledOperatorsForUndefined = true;
     } else {
         historyExpression.push(expression);
         expression = evaluateExpression(expression);
@@ -100,6 +141,7 @@ const equalsButton = () => {
         smallNumberDisplay.innerHTML = `<p class="small-number-output">${historyExpression[historyExpression.length - 1]}</p>`;
     }
 
+    //for diagnosis
     console.log(historyExpression);
     console.log(answerExpression);
 
@@ -128,30 +170,27 @@ const deleteCharacters = () => {
     bigNumberDisplay.innerHTML = `<p class="big-number-output">${expression}</p>`;
 }
 
-function disableScientificOperators() {
-    document.querySelectorAll(".calculator-scientific-buttons button").forEach((button) => {
-        button.disabled = true;
-    });
-}
-
-function enableScientificOperators() {
-    document.querySelectorAll(".calculator-scientific-buttons button").forEach((button) => {
-        button.disabled = false;
-    });
-}
-
-//scientific operators
-function addParenthesis(character) {
+//Status: Scientific Operations ongoing development
+const addParenthesis = character => {
+    //adds suggested parenthesis
     if (character === '('){
         lastParenthesis.push(')');
         addSymbolToExpression('(');
-    }
-
-    console.log(lastParenthesis.length)
-    if (character === ')') {
-        lastParenthesis.pop();
+    } else if (character === ')') {
         if (lastParenthesis.length !== 0){
+            lastParenthesis.pop(); 
             addSymbolToExpression(')');
-        }
+        }    
     }
+}
+
+const addMultiplicationAfterParenthesis = () => {
+    
+}
+
+//HARD: Ability to evaluate nested expressions 
+const logarithmButton = () => {
+    addSymbolToExpression('log');
+    addParenthesis('(');
+    
 }

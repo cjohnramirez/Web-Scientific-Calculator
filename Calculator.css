@@ -42,7 +42,6 @@ body {
     white-space: nowrap;
     display: flex;
     margin: 0;
-    padding-left: 1rem;
 }
 
 #big-number-display {
@@ -50,19 +49,18 @@ body {
 }
 
 .big-number-output {
-    padding-left: -1rem;
+    padding-left: 1rem;
     font-size: 40px;
     color: white;
 }
 
 .big-number-suggestion {
-    padding-left: -1rem;
     font-size: 40px;
     color: rgba(255, 255, 255, 0.500);
 }
 
 .small-number-output {
-    padding: 0 0.5rem; 
+    padding: 0 1rem; 
     font-size: 20px;
     color: white;
 }

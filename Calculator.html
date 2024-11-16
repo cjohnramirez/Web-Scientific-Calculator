@@ -28,16 +28,16 @@
             <div class="display-calculator">
                 <div class="calculator-buttons">
                     <div class="calculator-scientific-buttons">
-                        <button id="abs-button">
-                            <p>Abs</p>
+                        <button id="square-root-button">
+                            <p>sqrt</p>
                         </button>
-                        <button id="cube-root-button">
+                        <button id="cube-button">
                             <p>x³</p>
                         </button>
-                        <button id="square-root-button">
+                        <button id="square-button">
                             <p>x²</p>
                         </button>
-                        <button id="nth-root-button">
+                        <button id="nth-power-button">
                             <p>xⁿ</p>
                         </button>
                         <button id="left-parenthesis-button" onclick="addParenthesis('(')">
@@ -46,7 +46,7 @@
                         <button id="right-parenthesis-button" onclick="addParenthesis(')')">
                             <p>)</p>
                         </button>
-                        <button id="normal-log-button">
+                        <button id="normal-log-button" onclick="logarithmButton()">
                             <p>log</p>
                         </button>
                         <button id="natural-log-button">
@@ -66,13 +66,13 @@
                         </button>
                     </div>
                     <div class="calculator-normal-buttons">
-                        <button id="7-button" onclick="addSymbolToExpression('7')">
+                        <button id="7-button" class="number" onclick="addSymbolToExpression('7')">
                             <p>7</p>
                         </button>
-                        <button id="8-button" onclick="addSymbolToExpression('8')">
+                        <button id="8-button" class="number" onclick="addSymbolToExpression('8')">
                             <p>8</p>
                         </button>
-                        <button id="9-button"
+                        <button id="9-button" class="number"
                         onclick="addSymbolToExpression('9')">
                             <p>9</p>
                         </button>
@@ -82,14 +82,14 @@
                         <button id="all-clear-button" onclick="allClear()">
                             <p>AC</p>
                         </button>
-                        <button id="4-button" onclick="addSymbolToExpression('4')">
+                        <button id="4-button" class="number" onclick="addSymbolToExpression('4')">
                             <p>4</p>
                         </button>
-                        <button id="5-button"
+                        <button id="5-button" class="number" 
                         onclick="addSymbolToExpression('5')">
                             <p>5</p>
                         </button>
-                        <button id="6-button"
+                        <button id="6-button" class="number" 
                         onclick="addSymbolToExpression('6')">
                             <p>6</p>
                         </button>
@@ -99,13 +99,13 @@
                         <button id="divide-button" class="operator" onclick="addSymbolToExpression('/')">
                             <p>/</p>
                         </button>
-                        <button id="1-button" onclick="addSymbolToExpression('1')">
+                        <button id="1-button" class="number" onclick="addSymbolToExpression('1')">
                             <p>1</p>
                         </button>
-                        <button id="2-button" onclick="addSymbolToExpression('2')">
+                        <button id="2-button" class="number" onclick="addSymbolToExpression('2')">
                             <p>2</p>
                         </button>
-                        <button id="3-button" onclick="addSymbolToExpression('3')">
+                        <button id="3-button" class="number" onclick="addSymbolToExpression('3')">
                             <p>3</p>
                         </button>
                         <button id="plus-button" class="operator" onclick="addSymbolToExpression('+')">
@@ -114,7 +114,7 @@
                         <button id="minus-button" class="operator" onclick="addSymbolToExpression('-')">
                             <p>-</p>
                         </button>
-                        <button id="zero-button" onclick="addSymbolToExpression('0')">
+                        <button id="zero-button" class="number" onclick="addSymbolToExpression('0')">
                             <p>0</p>
                         </button>
                         <button id="dot-button" class="operator"
