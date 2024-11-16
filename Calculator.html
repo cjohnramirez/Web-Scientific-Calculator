@@ -28,7 +28,7 @@
             <div class="display-calculator">
                 <div class="calculator-buttons">
                     <div class="calculator-scientific-buttons">
-                        <button id="square-root-button">
+                        <button id="square-root-button" onclick="scientificOperatorsButton('sqrt')">
                             <p>sqrt</p>
                         </button>
                         <button id="cube-button">
@@ -46,19 +46,19 @@
                         <button id="right-parenthesis-button" onclick="addParenthesis(')')">
                             <p>)</p>
                         </button>
-                        <button id="normal-log-button" onclick="logarithmButton()">
+                        <button id="normal-log-button" onclick="scientificOperatorsButton('log')"">
                             <p>log</p>
                         </button>
-                        <button id="natural-log-button">
+                        <button id="natural-log-button" onclick="scientificOperatorsButton('ln')">
                             <p>ln</p>
                         </button>
-                        <button id="sine-button">
+                        <button id="sine-button" onclick="scientificOperatorsButton('sin')">
                             <p>sin</p>
                         </button>
-                        <button id="cosine-button">
+                        <button id="cosine-button" onclick="scientificOperatorsButton('cos')">
                             <p>cos</p>
                         </button>
-                        <button id="tangent-button">
+                        <button id="tangent-button" onclick="scientificOperatorsButton('tan')">
                             <p>tan</p>
                         </button>
                         <button id="modulo-button">

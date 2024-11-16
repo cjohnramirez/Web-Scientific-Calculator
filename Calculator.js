@@ -22,6 +22,7 @@ let operators = ['+', 'x', '/', '*', '-'];
 let oneDot = false;
 let isModeClicked = false;
 let disabledOperatorsForUndefined = false;
+let firstParam = true;
 let isParenthesisClosed = false;
 let lastParenthesis = [];
 
@@ -173,24 +174,26 @@ const deleteCharacters = () => {
 //Status: Scientific Operations ongoing development
 const addParenthesis = character => {
     //adds suggested parenthesis
-    if (character === '('){
+    if (lastParenthesis.length === 0){
+        firstParam = false;
+    } 
+    
+    if (character === '(' && !firstParam){
         lastParenthesis.push(')');
         addSymbolToExpression('(');
-    } else if (character === ')') {
+    } else if (character === ')' && !firstParam) {
         if (lastParenthesis.length !== 0){
+            firstParam = true;
             lastParenthesis.pop(); 
             addSymbolToExpression(')');
-        }    
+        }
     }
-}
 
-const addMultiplicationAfterParenthesis = () => {
-    
+    console.log(firstParam);
 }
 
 //HARD: Ability to evaluate nested expressions 
-const logarithmButton = () => {
-    addSymbolToExpression('log');
+const scientificOperatorsButton = (string) => {
+    addSymbolToExpression(string);
     addParenthesis('(');
-    
 }
