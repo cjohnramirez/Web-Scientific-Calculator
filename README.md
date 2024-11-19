@@ -20,5 +20,9 @@ Beta 2.0
 - Adds Nested Expressions (Ability to evaluate nested expressions are still in development)
 - Fixed Bugs and Minor Improvements
 
+Beta 3.0 
+- Math.js library is integrated in the program
+- Ability to solve basic arithmetic and scientific operations, alongside nested expressions
+
 ## Screenshots
 ![alt text](image.png)

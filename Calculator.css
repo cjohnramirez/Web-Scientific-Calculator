@@ -82,9 +82,9 @@ body {
     background-color: #d05c65;
 }
 
-.calculator-normal-buttons > button:disabled {
+/* .calculator-normal-buttons > button:disabled {
     color: black;
-} 
+}  */
 
 button p {
     font-size: 16px;

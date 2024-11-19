@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,900;1,700&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.5.1/math.min.js"></script>
     </head>
     <body>
         <div class="calculator">
@@ -31,13 +32,13 @@
                         <button id="square-root-button" onclick="scientificOperatorsButton('sqrt')">
                             <p>sqrt</p>
                         </button>
-                        <button id="cube-button">
+                        <button id="cube-button" onclick="addSymbolToExpression('^3')">
                             <p>x³</p>
                         </button>
-                        <button id="square-button">
+                        <button id="square-button" onclick="addSymbolToExpression('^2')">
                             <p>x²</p>
                         </button>
-                        <button id="nth-power-button">
+                        <button id="nth-power-button" onclick="addSymbolToExpression('^')">
                             <p>xⁿ</p>
                         </button>
                         <button id="left-parenthesis-button" onclick="addParenthesis('(')">
@@ -46,10 +47,10 @@
                         <button id="right-parenthesis-button" onclick="addParenthesis(')')">
                             <p>)</p>
                         </button>
-                        <button id="normal-log-button" onclick="scientificOperatorsButton('log')"">
+                        <button id="normal-log-button" onclick="scientificOperatorsButton('log10')">
                             <p>log</p>
                         </button>
-                        <button id="natural-log-button" onclick="scientificOperatorsButton('ln')">
+                        <button id="natural-log-button" onclick="scientificOperatorsButton('log')">
                             <p>ln</p>
                         </button>
                         <button id="sine-button" onclick="scientificOperatorsButton('sin')">
@@ -61,7 +62,7 @@
                         <button id="tangent-button" onclick="scientificOperatorsButton('tan')">
                             <p>tan</p>
                         </button>
-                        <button id="modulo-button">
+                        <button id="modulo-button" onclick="addSymbolToExpression('%')">
                             <p>%</p>
                         </button>
                     </div>

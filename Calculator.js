@@ -79,9 +79,12 @@ const lastChar = expression => expression.charAt(expression.length - 1);
 
 const lastCharInclusion = expression => operators.includes(lastChar(expression));
 
+let recentIndex = 0;
+let closeParenthesisIndex = 0;
+
 const evaluateExpression = (expression) => {
-    //due to constraints, the eval() function is safe
-    answer = eval(expression);
+    //Math.js library
+    answer = math.evaluate(expression);
 
     //truncation
     if (answer.toString().includes('e')){
@@ -126,7 +129,21 @@ const equalsButton = () => {
         expression = expression.substring(0, expression.length - 1);
     } 
 
-    //evaluates divide by zero
+    if (lastParenthesis.length != 0){
+        equalButton.disabled = true;
+    } 
+
+    evaluateDivideByZero();
+    
+    console.log(historyExpression);
+    console.log(answerExpression);
+
+    bigNumberDisplay.innerHTML = `<p class="big-number-output">${expression}</p>`;
+    
+}
+
+//evaluates divide by zero
+const evaluateDivideByZero = () => {
     if (evaluateExpression(expression) === Infinity){
         disableOperators();
         disableNumbers();
@@ -135,19 +152,13 @@ const equalsButton = () => {
         deleteButton.disabled = true;
         smallNumberDisplay.innerHTML = "";
         disabledOperatorsForUndefined = true;
+        return 0;
     } else {
         historyExpression.push(expression);
         expression = evaluateExpression(expression);
         answerExpression.push(evaluateExpression(expression));
         smallNumberDisplay.innerHTML = `<p class="small-number-output">${historyExpression[historyExpression.length - 1]}</p>`;
     }
-
-    //for diagnosis
-    console.log(historyExpression);
-    console.log(answerExpression);
-
-    bigNumberDisplay.innerHTML = `<p class="big-number-output">${expression}</p>`;
-    
 }
 
 const allClear = () => {
@@ -171,7 +182,6 @@ const deleteCharacters = () => {
     bigNumberDisplay.innerHTML = `<p class="big-number-output">${expression}</p>`;
 }
 
-//Status: Scientific Operations ongoing development
 const addParenthesis = character => {
     //adds suggested parenthesis
     if (lastParenthesis.length === 0){
@@ -183,16 +193,14 @@ const addParenthesis = character => {
         addSymbolToExpression('(');
     } else if (character === ')' && !firstParam) {
         if (lastParenthesis.length !== 0){
-            firstParam = true;
             lastParenthesis.pop(); 
             addSymbolToExpression(')');
+        } else {
+            firstParam = true;
         }
     }
-
-    console.log(firstParam);
 }
 
-//HARD: Ability to evaluate nested expressions 
 const scientificOperatorsButton = (string) => {
     addSymbolToExpression(string);
     addParenthesis('(');
