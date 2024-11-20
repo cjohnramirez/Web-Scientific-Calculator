@@ -24,5 +24,8 @@ Beta 3.0
 - Math.js library is integrated in the program
 - Ability to solve basic arithmetic and scientific operations, alongside nested expressions
 
+Beta 3.1
+- Fixes some errors, alongside minor changes
+
 ## Screenshots
 ![alt text](image.png)

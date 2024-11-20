@@ -32,13 +32,13 @@
                         <button id="square-root-button" onclick="scientificOperatorsButton('sqrt')">
                             <p>sqrt</p>
                         </button>
-                        <button id="cube-button" onclick="addSymbolToExpression('^3')">
+                        <button id="cube-button" class="operator" onclick="addSymbolToExpression('^3')">
                             <p>x³</p>
                         </button>
-                        <button id="square-button" onclick="addSymbolToExpression('^2')">
+                        <button id="square-button" class="operator" onclick="addSymbolToExpression('^2')">
                             <p>x²</p>
                         </button>
-                        <button id="nth-power-button" onclick="addSymbolToExpression('^')">
+                        <button id="nth-power-button" class="operator" onclick="addSymbolToExpression('^')">
                             <p>xⁿ</p>
                         </button>
                         <button id="left-parenthesis-button" onclick="addParenthesis('(')">
@@ -48,10 +48,10 @@
                             <p>)</p>
                         </button>
                         <button id="normal-log-button" onclick="scientificOperatorsButton('log10')">
-                            <p>log</p>
+                            <p>log 10</p>
                         </button>
                         <button id="natural-log-button" onclick="scientificOperatorsButton('log')">
-                            <p>ln</p>
+                            <p>log n</p>
                         </button>
                         <button id="sine-button" onclick="scientificOperatorsButton('sin')">
                             <p>sin</p>
@@ -62,7 +62,7 @@
                         <button id="tangent-button" onclick="scientificOperatorsButton('tan')">
                             <p>tan</p>
                         </button>
-                        <button id="modulo-button" onclick="addSymbolToExpression('%')">
+                        <button id="modulo-button" class="operator" onclick="addSymbolToExpression('%')">
                             <p>%</p>
                         </button>
                     </div>

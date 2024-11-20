@@ -18,7 +18,7 @@ let expression = "";
 let answer = "";
 let historyExpression = [];
 let answerExpression = [];
-let operators = ['+', 'x', '/', '*', '-'];
+let operators = ['+', 'x', '/', '*', '-', '%', '^'];
 let oneDot = false;
 let isModeClicked = false;
 let disabledOperatorsForUndefined = false;
@@ -28,7 +28,6 @@ let lastParenthesis = [];
 
 defaultState();
 
-//Status: Basic Arithmetic Finished
 function defaultState() {
     disableOperators();
     disableScientificOperators();
@@ -76,7 +75,6 @@ function enableScientificOperators() {
 }
 
 const lastChar = expression => expression.charAt(expression.length - 1);
-
 const lastCharInclusion = expression => operators.includes(lastChar(expression));
 
 let recentIndex = 0;
@@ -97,10 +95,10 @@ const evaluateExpression = (expression) => {
 }
 
 const addSymbolToExpression = (symbol) => {
-    equalButton.disabled = expression.length - 1 === 0; 
+    if (!symbol.includes('^')){
+        equalButton.disabled = expression.length - 1 === 0; 
+    }
     expression += symbol;
-    console.log(expression);
-
     disableMultipleOperators();
 
     bigNumberDisplay.innerHTML = `<p class="big-number-output">${expression}</p>`;
@@ -125,6 +123,9 @@ const disableMultipleOperators = () => {
 }
 
 const equalsButton = () => {
+    historyExpression.push(expression);
+    console.log(historyExpression);
+
     if (lastCharInclusion(expression)){
         expression = expression.substring(0, expression.length - 1);
     } 
@@ -133,17 +134,12 @@ const equalsButton = () => {
         equalButton.disabled = true;
     } 
 
-    evaluateDivideByZero();
-    
-    console.log(historyExpression);
-    console.log(answerExpression);
-
+    evaluateInfinity();
     bigNumberDisplay.innerHTML = `<p class="big-number-output">${expression}</p>`;
-    
 }
 
-//evaluates divide by zero
-const evaluateDivideByZero = () => {
+//evaluates divide by zero and undefined calculations
+const evaluateInfinity = () => {
     if (evaluateExpression(expression) === Infinity){
         disableOperators();
         disableNumbers();
@@ -154,9 +150,9 @@ const evaluateDivideByZero = () => {
         disabledOperatorsForUndefined = true;
         return 0;
     } else {
-        historyExpression.push(expression);
         expression = evaluateExpression(expression);
         answerExpression.push(evaluateExpression(expression));
+        
         smallNumberDisplay.innerHTML = `<p class="small-number-output">${historyExpression[historyExpression.length - 1]}</p>`;
     }
 }
